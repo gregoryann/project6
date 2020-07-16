@@ -61,6 +61,9 @@ drawMatrix(matrix, {x: 5, y: 5});
 
 //Wrap drawMatrix() in draw() function      
  function draw() {
+     //Clear in beginning of draw()
+     context.fillStyle = '#000';
+    context.fillRect(0, 0, canvas.width, canvas.height);
     drawMatrix(player.matrix, player.pos);
 }
  //Add auto draw on requestAnimationFrame       
