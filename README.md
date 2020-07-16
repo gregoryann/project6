@@ -1,4 +1,3 @@
 # Tetris-game-JS
 
-
-![alt text](ibb.co/6DwPSt3)
+![alt tag](https://ibb.co/6DwPSt3)
