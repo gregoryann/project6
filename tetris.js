@@ -56,7 +56,7 @@ function drawMatrix(matrix) {
 //Setup arena and log with table
 
 const arena = createMatrix(12, 20);
-console.table(arena);
+
 
 
  //Add player structure       
