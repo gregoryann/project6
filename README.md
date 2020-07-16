@@ -1,1 +1,1 @@
-# project6
+# Tetris-game-JS
