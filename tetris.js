@@ -68,6 +68,11 @@ drawMatrix(matrix, {x: 5, y: 5});
 }
  //Add auto draw on requestAnimationFrame       
 function update() {
+   
+    //Demonstrate time given by requestAnimationFrame
+   
+    function update(time) {
+    console.log(time);
     draw();
     requestAnimationFrame(update);
 }
