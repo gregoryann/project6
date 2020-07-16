@@ -101,6 +101,11 @@ function update(time = 0) {
         player.pos.x--;
     } else if (event.keyCode === 39) {
         player.pos.x++;
+        
+    //Add support for down key
+       } else if (event.keyCode === 40) {
+        player.pos.y++;
+        dropCounter = 0;
     }
 });
 
