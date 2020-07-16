@@ -66,6 +66,12 @@ drawMatrix(matrix, {x: 5, y: 5});
     context.fillRect(0, 0, canvas.width, canvas.height);
     drawMatrix(player.matrix, player.pos);
 }
+
+function playerDrop() {
+    player.pos.y++;
+    dropCounter = 0;
+}        
+        
  //Add auto draw on requestAnimationFrame       
 function update() {
    
@@ -84,8 +90,7 @@ function update(time = 0) {
     
     dropCounter += deltaTime;
     if (dropCounter > dropInterval) {
-        player.pos.y++;
-        dropCounter = 0;
+       playerDrop();
     }
     
     lastTime = time;
