@@ -61,9 +61,7 @@ function drawMatrix(matrix) {
             if (value !== 0) {
                 context.fillStyle = 'red';
                 context.fillRect(x, y, 1, 1);
-                context.fillRect(x + offset.x,
-                                 y + offset.y,
-                                 1, 1);
+                context.fillRect(x + offset.x, y + offset.y, 1, 1);
             }
         });        
         
@@ -85,14 +83,18 @@ const player = {
 
 drawMatrix(matrix);
 drawMatrix(matrix, {x: 5, y: 5});
+
+
 //Call drawMatrix with player structure.
  drawMatrix(player.matrix, player.pos);
 
 //Wrap drawMatrix() in draw() function      
  function draw() {
      //Clear in beginning of draw()
-     context.fillStyle = '#000';
+    context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
+     //Draw arena
+    drawMatrix(arena, {x: 0, y: 0});
     drawMatrix(player.matrix, player.pos);
 }
 
