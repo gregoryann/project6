@@ -29,5 +29,18 @@ matrix.forEach((row, y) => {
             context.fillStyle = 'red';
             context.fillRect(x, y, 1, 1);
         }
+        
+//Wrap matrix drawing in function               
+function drawMatrix(matrix) {
+    matrix.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context.fillStyle = 'red';
+                context.fillRect(x, y, 1, 1);
+            }
+        });        
+        
     });
 });
+}
+drawMatrix(matrix);
