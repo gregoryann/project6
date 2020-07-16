@@ -63,3 +63,10 @@ drawMatrix(matrix, {x: 5, y: 5});
  function draw() {
     drawMatrix(player.matrix, player.pos);
 }
+ //Add auto draw on requestAnimationFrame       
+function update() {
+    draw();
+    requestAnimationFrame(update);
+}
+
+update();
