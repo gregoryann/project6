@@ -23,12 +23,15 @@ const matrix = [
     [0, 0, 0],
 ];
 
-matrix.forEach((row, y) => {
-    row.forEach((value, x) => {
-        if (value !== 0) {
-            context.fillStyle = 'red';
-            context.fillRect(x, y, 1, 1);
-        }
+//Add createMatrix function
+function createMatrix(w, h) {
+    const matrix = [];
+    while (h--) {
+        matrix.push(new Array(w).fill(0));
+    }
+    return matrix;
+}
+
         
 //Wrap matrix drawing in function               
 function drawMatrix(matrix) {
