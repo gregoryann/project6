@@ -32,11 +32,17 @@ matrix.forEach((row, y) => {
         
 //Wrap matrix drawing in function               
 function drawMatrix(matrix) {
+   
+    //Add offset support to drawMatrix()
+    function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
                 context.fillStyle = 'red';
                 context.fillRect(x, y, 1, 1);
+                context.fillRect(x + offset.x,
+                                 y + offset.y,
+                                 1, 1);
             }
         });        
         
@@ -44,3 +50,4 @@ function drawMatrix(matrix) {
 });
 }
 drawMatrix(matrix);
+drawMatrix(matrix, {x: 5, y: 5});
