@@ -60,37 +60,37 @@ function createPiece(type)
         ];
     } else if (type === 'L') {
         return [
-            [0, 1, 0],
-            [0, 1, 0],
-            [0, 1, 1],
+            [0, 2, 0],
+            [0, 2, 0],
+            [0, 2, 2],
         ];
     } else if (type === 'J') {
         return [
-            [0, 1, 0],
-            [0, 1, 0],
-            [1, 1, 0],
+            [0, 3, 0],
+            [0, 3, 0],
+            [3, 3, 0],
         ];
     } else if (type === 'O') {
         return [
-            [1, 1],
-            [1, 1],
+            [4, 4],
+            [4, 4],
         ];
     } else if (type === 'Z') {
         return [
-            [1, 1, 0],
-            [0, 1, 1],
+            [5, 5, 0],
+            [0, 5, 5],
             [0, 0, 0],
         ];
     } else if (type === 'S') {
         return [
-            [0, 1, 1],
-            [1, 1, 0],
+            [0, 6, 6],
+            [6, 6, 0],
             [0, 0, 0],
         ];
     } else if (type === 'T') {
         return [
-            [0, 1, 0],
-            [1, 1, 1],
+            [0, 7, 0],
+            [7, 7, 7],
             [0, 0, 0],
         ];
     }
@@ -104,7 +104,7 @@ function drawMatrix(matrix) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                context.fillStyle = 'red';
+                context.fillStyle = colors[value];
                 context.fillRect(x, y, 1, 1);
                 context.fillRect(x + offset.x, y + offset.y, 1, 1);
             }
@@ -224,11 +224,11 @@ function playerRotate(dir) {
 
 
 
- //Add auto draw on requestAnimationFrame       
-function update() {
+  //Add auto draw on requestAnimationFrame       
+  function update() {
    
  //Demonstrate time given by requestAnimationFrame
-   
+    
     function update(time) {
     console.log(time);
 
@@ -262,16 +262,27 @@ function update(time = 0) {
    document.addEventListener('keydown', event => {
     if (event.keyCode === 37) {
         playerMove(-1);
-        
     } else if (event.keyCode === 39) {
-        player.pos.x++;
-        
-    //Add support for down key
-       } else if (event.keyCode === 40) {
-         playerMove(1);
-           
-        dropCounter = 0;
+        playerMove(1);
+    } else if (event.keyCode === 40) {
+        playerDrop();
+    } else if (event.keyCode === 81) {
+        playerRotate(-1);
+    } else if (event.keyCode === 87) {
+        playerRotate(1);
     }
 });
+        
+ const colors = [
+    null,
+    '#FF0D72',
+    '#0DC2FF',
+    '#0DFF72',
+    '#F538FF',
+    '#FF8E0D',
+    '#FFE138',
+    '#3877FF',
+];       
+        
 
 update();
