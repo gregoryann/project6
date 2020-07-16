@@ -49,5 +49,10 @@ function drawMatrix(matrix) {
     });
 });
 }
+ //Add player structure       
+const player = {
+    pos: {x: 5, y: 5},
+    matrix: matrix,
+};        
 drawMatrix(matrix);
 drawMatrix(matrix, {x: 5, y: 5});
