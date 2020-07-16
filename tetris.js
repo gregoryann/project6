@@ -52,11 +52,19 @@ function drawMatrix(matrix) {
     });
 });
 }
+
+//Setup arena and log with table
+
+const arena = createMatrix(12, 20);
+console.table(arena);
+
+
  //Add player structure       
 const player = {
     pos: {x: 5, y: 5},
     matrix: matrix,
 };        
+
 drawMatrix(matrix);
 drawMatrix(matrix, {x: 5, y: 5});
 //Call drawMatrix with player structure.
