@@ -69,10 +69,17 @@ drawMatrix(matrix, {x: 5, y: 5});
  //Add auto draw on requestAnimationFrame       
 function update() {
    
-    //Demonstrate time given by requestAnimationFrame
+ //Demonstrate time given by requestAnimationFrame
    
     function update(time) {
     console.log(time);
+//Refactor update to measure delta time
+let lastTime = 0;
+function update(time = 0) {
+    const deltaTime = time - lastTime;
+    console.log(deltaTime);
+    lastTime = time;
+        
     draw();
     requestAnimationFrame(update);
 }
