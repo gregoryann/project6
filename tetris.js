@@ -13,15 +13,12 @@
 //Retrieve and fill canvas with black
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
+
 context.scale(20, 20);
 
 context.fillStyle = '#000';
 context.fillRect(0, 0, canvas.width, canvas.height);
-const matrix = [
-    [0, 1, 0],
-    [1, 1, 1],
-    [0, 0, 0],
-];
+
 
 //Add collide function
 function collide(arena, player) {
@@ -66,20 +63,11 @@ function drawMatrix(matrix) {
         });        
         
     });
-});
+
 }
 
 //Setup arena and log with table
-
-const arena = createMatrix(12, 20);
-
-
-
- //Add player structure       
-const player = {
-    pos: {x: 5, y: 5},
-    matrix: matrix,
-};        
+       
 
 drawMatrix(matrix);
 drawMatrix(matrix, {x: 5, y: 5});
@@ -90,9 +78,11 @@ drawMatrix(matrix, {x: 5, y: 5});
 
 //Wrap drawMatrix() in draw() function      
  function draw() {
+    
      //Clear in beginning of draw()
     context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
+    
      //Draw arena
     drawMatrix(arena, {x: 0, y: 0});
     drawMatrix(player.matrix, player.pos);
@@ -138,7 +128,7 @@ function playerDrop() {
     if (collide(arena, player)) {
         player.pos.y--;
         merge(arena, player);
-        player.pos.y = 0;
+        playerReset();
     }   
     
     
