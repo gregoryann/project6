@@ -56,3 +56,5 @@ const player = {
 };        
 drawMatrix(matrix);
 drawMatrix(matrix, {x: 5, y: 5});
+//Call drawMatrix with player structure.
+ drawMatrix(player.matrix, player.pos);       
